@@ -372,7 +372,7 @@ position = Vector2(-43, -5)
 script = SubResource("GDScript_bcqfh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=244762724]
-position = Vector2(-46, -2)
+position = Vector2(42, 21)
 shape = SubResource("RectangleShape2D_leoje")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=208020362]
