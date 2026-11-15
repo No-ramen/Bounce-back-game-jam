@@ -1,12 +1,7 @@
 [gd_scene format=4 uid="uid://bpf2q311yktui"]
 
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://poy863li2b5f" path="res://default.png" id="2_272bh"]
-[ext_resource type="Texture2D" uid="uid://3vm5fanc55si" path="res://Greeeeen.jpg" id="2_h2yge"]
-[ext_resource type="Texture2D" uid="uid://bxq6egxq6kjlm" path="res://looking left.png" id="3_272bh"]
-=======
 [ext_resource type="Texture2D" uid="uid://bi1xggbk60sq6" path="res://icon.svg" id="1_0xm2m"]
->>>>>>> f09d28fb5e7aafa7f577f35f4249ad15a7a6b846
+[ext_resource type="Texture2D" uid="uid://3vm5fanc55si" path="res://Greeeeen.jpg" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://lsqmlvk037no" path="res://red.png" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://c0ysh3h7ywk78" path="res://cobblestone.jpg" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://dnkscqd75o4dh" path="res://looking right.png" id="4_5vw27"]
