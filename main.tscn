@@ -1,9 +1,11 @@
 [gd_scene format=4 uid="uid://bpf2q311yktui"]
 
-[ext_resource type="Texture2D" uid="uid://bi1xggbk60sq6" path="res://icon.svg" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://poy863li2b5f" path="res://default.png" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://3vm5fanc55si" path="res://Greeeeen.jpg" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://bxq6egxq6kjlm" path="res://looking left.png" id="3_272bh"]
 [ext_resource type="Texture2D" uid="uid://lsqmlvk037no" path="res://red.png" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://c0ysh3h7ywk78" path="res://cobblestone.jpg" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://dnkscqd75o4dh" path="res://looking right.png" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bm3rm0ujvlo5u" path="res://stonebrick.jpg" id="4_lquwl"]
 
 [sub_resource type="GDScript" id="GDScript_bfgb6"]
@@ -2198,6 +2200,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	if velocity.x > 0:
+		$Sprite2D.animation= \"right\"
+	elif velocity.x < 0:
+		$Sprite2D.animation= \"left\"
+	else:
+		$Sprite2D.animation= \"default\"
+	
 	move_and_slide()
 
 	for i in get_slide_collision_count() :
@@ -2207,8 +2216,35 @@ func _physics_process(delta: float) -> void:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 "
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bvp3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_272bh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_272bh")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5vw27")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_piya1"]
-size = Vector2(45, 53)
+size = Vector2(45, 39)
 
 [sub_resource type="SphereMesh" id="SphereMesh_bfgb6"]
 
@@ -2288,10 +2324,10 @@ tile_set = SubResource("TileSet_piya1")
 [node name="thing" type="CharacterBody2D" parent="." unique_id=495156634]
 script = SubResource("GDScript_piya1")
 
-[node name="Sprite2D" type="Sprite2D" parent="thing" unique_id=1074285611]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="thing" unique_id=1838337067]
 position = Vector2(72.00001, -43)
 scale = Vector2(0.35937497, 0.41796878)
-texture = ExtResource("1_0xm2m")
+sprite_frames = SubResource("SpriteFrames_1bvp3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="thing" unique_id=1895715116]
 position = Vector2(72, -43.5)
