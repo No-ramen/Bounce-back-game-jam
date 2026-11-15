@@ -11,6 +11,14 @@ script/source = "extends Node2D
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file(\"res://Second scene.tscn\")
+func _on_area_2d_body_entered(ody):
+	if(ody.name == \"thing\"):
+		ody.velocity.y = -500
+		ody.velocity.x = -5000
+func _on_area_2d_body_exited(ody):
+	if(ody.name == \"thing\"):
+		ody.velocity.x = 600
+		
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
@@ -2198,72 +2206,99 @@ func _physics_process(delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_piya1"]
-size = Vector2(45, 52)
+size = Vector2(45, 53)
 
 [sub_resource type="SphereMesh" id="SphereMesh_bfgb6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_piya1"]
-radius = 16.0
+radius = 31.400637
+
+[sub_resource type="GDScript" id="GDScript_leoje"]
+script/source = "extends Area2D
+
+
+func _on_area_2d_body_entered(body):
+	if(body.name == \"thing\"):
+		body.velocity.y = -500
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfgb6"]
+size = Vector2(169, 24)
 
 [node name="Node2D" type="Node2D" unique_id=227951287]
 position = Vector2(-125, 20)
 script = SubResource("GDScript_bfgb6")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=594206045]
-tile_map_data = PackedByteArray("AAD7/woAAQAFABMAAAD8/woAAQAFABMAAAD9/woAAQAFABMAAAD+/woAAQAFABMAAAD//woAAQAFABMAAAAAAAoAAQAFABMAAAABAAoAAQAFABMAAAACAAoAAQAFABMAAAADAAoAAQAFABMAAAD6/woAAQAEABEAAAD5/woAAQAEABEAAAD4/woAAQAEABEAAAD3/woAAQAEABEAAAD2/woAAQAEABEAAAD1/woAAQAEABEAAAD0/woAAQAEABEAAADz/woAAQAEABEAAADy/wkAAQAEABEAAADx/wkAAQAEABEAAADx/wgAAQAEABEAAADy/wgAAQAEABEAAAAEAAoAAQAEABEAAAAFAAoAAQAEABEAAAAGAAoAAQAEABEAAAAHAAoAAQAEABEAAAAIAAoAAQAEABEAAAAJAAoAAQAEABEAAAAKAAoAAQAEABEAAAALAAoAAQAEABEAAAALAAkAAQAEABEAAAALAAgAAQAEABEAAAAMAAgAAQAEABEAAAAMAAcAAQAEABEAAAANAAcAAQAEABEAAAA=")
+tile_map_data = PackedByteArray("AAD7/woAAQAFABMAAAD8/woAAQAFABMAAAD9/woAAQAFABMAAAD+/woAAQAFABMAAAD//woAAQAFABMAAAAAAAoAAQAFABMAAAABAAoAAQAFABMAAAACAAoAAQAFABMAAAADAAoAAQAFABMAAAD6/woAAQAEABEAAAD5/woAAQAEABEAAAD4/woAAQAEABEAAAD3/woAAQAEABEAAAD2/woAAQAEABEAAAD1/woAAQAEABEAAAD0/woAAQAEABEAAADz/woAAQAEABEAAADy/wkAAQAEABEAAADx/wkAAQAEABEAAADx/wgAAQAEABEAAADy/wgAAQAEABEAAAAEAAoAAQAEABEAAAAFAAoAAQAEABEAAAAGAAoAAQAEABEAAAAHAAoAAQAEABEAAAAIAAoAAQAEABEAAAAJAAoAAQAEABEAAAAKAAoAAQAEABEAAAALAAoAAQAEABEAAAALAAkAAQAEABEAAAALAAgAAQAEABEAAAAMAAgAAQAEABEAAAAMAAcAAQAEABEAAAANAAcAAQAHABAAAADx/wcAAQAHABAAAADx/wYAAQAHABAAAADx/wUAAQAHABAAAADx/wQAAQAHABAAAADx/wMAAQAHABAAAADw/wMAAQAHABAAAADw/wIAAQAHABAAAADw/wEAAQAHABAAAADw/wAAAQAHABAAAADw////AQAHABAAAADw//7/AQAHABAAAADw//3/AQAHABAAAADw//z/AQAHABAAAADw//v/AQAHABAAAADw//r/AQAHABAAAADw//n/AQAHABAAAADw//j/AQAHABAAAADw//f/AQAHABAAAADw//b/AQAHABAAAADw//X/AQAHABAAAADw//T/AQAHABAAAADw//P/AQAHABAAAADx//T/AQAHABAAAADy//T/AQAHABAAAADz//T/AQAHABAAAAD0//T/AQAHABAAAAD1//T/AQAHABAAAAD2//T/AQAHABAAAAD3//T/AQAHABAAAAD4//T/AQAHABAAAAD5//T/AQAHABAAAAD6//T/AQAHABAAAAD7//T/AQAHABAAAAD8//T/AQAHABAAAAD9//T/AQAHABAAAAD+//T/AQAHABAAAAD///T/AQAHABAAAAAAAPT/AQAHABAAAAABAPT/AQAHABAAAAACAPT/AQAHABAAAAADAPT/AQAHABAAAAAEAPP/AQAHABAAAAAFAPP/AQAHABAAAAAGAPP/AQAHABAAAAAHAPP/AQAHABAAAAAIAPP/AQAHABAAAAAJAPP/AQAHABAAAAAJAPT/AQAHABAAAAAKAPT/AQAHABAAAAALAPT/AQAHABAAAAAMAPT/AQAHABAAAAANAPT/AQAHABAAAAAOAPT/AQAHABAAAAAPAPT/AQAHABAAAAAPAPX/AQAHABAAAAAQAPb/AQAHABAAAAAQAPf/AQAHABAAAAARAPf/AQAHABAAAAARAPj/AQAHABAAAAARAPn/AQAHABAAAAARAPr/AQAHABAAAAARAPv/AQAHABAAAAARAPz/AQAHABAAAAARAP3/AQAHABAAAAAQAP3/AQAHABAAAAAQAP7/AQAHABAAAAAQAP//AQAHABAAAAAQAAAAAQAHABAAAAAQAAEAAQAHABAAAAAQAAIAAQAHABAAAAAQAAMAAQAHABAAAAAQAAQAAQAHABAAAAAQAAUAAQAHABAAAAAPAAUAAQAHABAAAAAPAAYAAQAHABAAAAAOAAYAAQAHABAAAAAOAAcAAQAHABAAAAA=")
 tile_set = SubResource("TileSet_piya1")
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=495156634]
+[node name="thing" type="CharacterBody2D" parent="." unique_id=495156634]
 script = SubResource("GDScript_piya1")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1074285611]
-position = Vector2(73, 57.75)
+[node name="Sprite2D" type="Sprite2D" parent="thing" unique_id=1074285611]
+position = Vector2(72.00001, -43)
 scale = Vector2(0.35937497, 0.41796878)
 texture = ExtResource("1_0xm2m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1895715116]
-position = Vector2(73.5, 58.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="thing" unique_id=1895715116]
+position = Vector2(72, -43.5)
 shape = SubResource("RectangleShape2D_piya1")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=63147123]
+[node name="Camera2D" type="Camera2D" parent="thing" unique_id=63147123]
 
 [node name="Button" type="Button" parent="." unique_id=629933175]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -132.0
+offset_top = 115.0
+offset_right = -87.0
+offset_bottom = 146.0
 text = "Next"
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=125376636]
+[node name="RidgidBody2D" type="RigidBody2D" parent="." unique_id=125376636]
 mass = 0.05
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="RigidBody2D" unique_id=1989095942]
-position = Vector2(-13.999999, 4.000004)
-scale = Vector2(32.03629, 32.000008)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="RidgidBody2D" unique_id=1989095942]
+position = Vector2(-161.50003, -43.49999)
+scale = Vector2(59.066895, 67.00002)
 mesh = SubResource("SphereMesh_bfgb6")
 texture = ExtResource("3_h2yge")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=729604790]
-position = Vector2(-14, 4)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RidgidBody2D" unique_id=729604790]
+position = Vector2(-160, -43)
 shape = SubResource("CircleShape2D_piya1")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1389650681]
+[node name="Sprite2D" type="Sprite2D" parent="RidgidBody2D" unique_id=1389650681]
 position = Vector2(-30, 4)
 scale = Vector2(0.38541666, 0.3416667)
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="." unique_id=1461834108]
-mass = 0.05
+[node name="Node2D" type="Node2D" parent="." unique_id=891365780]
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="RigidBody2D2" unique_id=1298466152]
-position = Vector2(-183, 61.000004)
-scale = Vector2(32.03629, 32.000008)
-mesh = SubResource("SphereMesh_bfgb6")
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=918989539]
+position = Vector2(91, 150)
+scale = Vector2(0.68292683, 0.16666667)
 texture = ExtResource("3_h2yge")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=1915857828]
-position = Vector2(-183, 61.000004)
-shape = SubResource("CircleShape2D_piya1")
+[node name="Area2D" type="Area2D" parent="Node2D" unique_id=571007910]
+script = SubResource("GDScript_leoje")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2" unique_id=1679596642]
-position = Vector2(-30, 4)
-scale = Vector2(0.38541666, 0.3416667)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=1572776807]
+position = Vector2(91.5, 151)
+shape = SubResource("RectangleShape2D_bfgb6")
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=1295202432]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2" unique_id=773496111]
+position = Vector2(91, 150)
+scale = Vector2(0.68292683, 0.16666667)
+texture = ExtResource("3_h2yge")
+
+[node name="Area2D" type="Area2D" parent="Node2D2" unique_id=1205057802]
+script = SubResource("GDScript_leoje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/Area2D" unique_id=1505750996]
+position = Vector2(91.5, 151)
+shape = SubResource("RectangleShape2D_bfgb6")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Node2D2/Area2D" to="." method="_on_area_2d_body_exited"]
